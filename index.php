@@ -5,9 +5,21 @@
 	$completeName = $firstName." ".$LastName;
 
 	$jobs = [
-		'PHP Developer',
-		'JavaScript Developer'
+    [
+		  'nombreProfesion'=>'PHP Developer', 
+      'descripcion' => 'Desarrollador en Solati Empresa que ofrece un software de gestión de cobranza Adminfo.'
+    ],
+    [
+		  'nombreProfesion'=>'JavaScript Developer',
+      'descripcion' => 'TOkio jejejejejejejejejjejejeehehejd'
+    ],
+   [
+      'nombreProfesion'=>'Front EndS| Developer',
+      'descripcion' => 'TOkio jejejejejejejejejjejejeehehejd'
+    ]    
 	];
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,43 +67,26 @@
         <div>
           <h3 class="border-bottom-gray" >Experiencia Laboral</h3>
           <ul>
-            <li class="work-position">
-              <h5>
-              <?php foreach($jobs as $job){
-              			echo $job."<br>";
-              		}
-              	?>
-              	</h5>
-              <p>Desarrollador en Solati Empresa que ofrece un software de gestión de cobranza Adminfo.</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Administrador pagina y intranet.</li>
-                <li>Desarrollador sistema de gestión de Desempeño.</li>
-                <li>Desarrollador Importador generico de datos Adminfo.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-                <h5>Gestión Documental</h5>
-                <p>Encargado de clasificar ordernar y describir las historias laborales de la seccional administrativa y financiera de fiscalia seccional Tunja.</p>
-                <strong>Achievements:</strong>
-                <ul>
-                  <li>Foliar</li>
-                  <li>Organizar Cronologicamente los documentos.</li>
-                  <li>crear cuadros de clasificación Documental</li>
-                  <li>Crear tablas de retención documental</li>
-                </ul>
-              </li>
-              <li class="work-position">
-                  <h5>Teoria del curso</h5>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
-                  <strong>Achievements:</strong>
-                  <ul>
-                  	<li><?= "dulce soledad"; ?>.</li>
-                    <li><a href="conceptosBasicos/tiposDeDatos.php">Tipos de datos</a>.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  </ul>
-                </li>
+          <?php
+            
+            for($idx = 0; $idx < count($jobs); $idx++){
+ 
+              echo '<li class="work-position">';
+                  echo '<h5>'. $jobs[$idx]['nombreProfesion']. '</h5>';
+                  echo '<p>'. $jobs[$idx]['descripcion']. '</p>';
+                  echo '<strong>Funciones:</strong>';
+                  echo '<ul>';	
+                    echo '<li>Foliar</li>';
+                    echo '<li>Organizar Cronologicamente los documentos.</li>';
+                    echo '<li>crear cuadros de clasificación Documental</li>';
+                    echo '<li>Crear tablas de retención documental</li>';
+                  echo '</ul>';
+               echo ' </li>'; 
+                
+
+            }
+
+            ?>
           </ul>
         </div>
         <div>
