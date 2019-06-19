@@ -3,19 +3,31 @@
 	$firstName = "Juan Felipe";
 	$LastName = "Rodríguez Vargas";
 	$completeName = $firstName." ".$LastName;
-
+  $limiteMeses = 12;
 	$jobs = [
     [
 		  'nombreProfesion'=>'PHP Developer', 
-      'descripcion' => 'Desarrollador en Solati Empresa que ofrece un software de gestión de cobranza Adminfo.'
+      'descripcion' => 'Desarrollador en Solati Empresa que ofrece un software de gestión de cobranza Adminfo.',
+      'visible' => true,
+      'meses' => 11
     ],
     [
 		  'nombreProfesion'=>'JavaScript Developer',
-      'descripcion' => 'TOkio jejejejejejejejejjejejeehehejd'
+      'descripcion' => 'Manejo del lenguajes de programacion JavaScript junto con herramientas del mismo como jquery, angulas, nodejs, reac native',
+      'visible' => false,
+      'meses' => 8
     ],
    [
-      'nombreProfesion'=>'Front EndS| Developer',
-      'descripcion' => 'TOkio jejejejejejejejejjejejeehehejd'
+      'nombreProfesion'=>'Front End Developer',
+      'descripcion' => 'Creador de interfaz graficas responsives para los diferentes tamaños de sus dispositivos',
+      'visible' => true,
+      'meses' => 8
+    ],
+    [
+      'nombreProfesion'=>'Soporte computación',
+      'descripcion' => 'aplicacion de mantenimiento preventivo y correctivo de los equipos de computo',
+      'visible' => false,
+      'meses' => 6
     ]    
 	];
 
@@ -69,11 +81,21 @@
           <ul>
           <?php
             
+            $totalMeses=0;
+
             for($idx = 0; $idx < count($jobs); $idx++){
- 
+
+              $totalMeses += $jobs[$idx]['meses'];
+
+
+              if ($jobs[$idx]['visible'] != true) {
+                continue;//significa que hasta hay llega jejejejje
+              }
+              echo $totalMeses;
               echo '<li class="work-position">';
                   echo '<h5>'. $jobs[$idx]['nombreProfesion']. '</h5>';
                   echo '<p>'. $jobs[$idx]['descripcion']. '</p>';
+                  echo '<p>'.$jobs[$idx]['meses'].'</p>';
                   echo '<strong>Funciones:</strong>';
                   echo '<ul>';	
                     echo '<li>Foliar</li>';
