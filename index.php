@@ -5,7 +5,7 @@
 	$firstName = "Juan Felipe";
 	$LastName = "Rodríguez Vargas";
 	$completeName = $firstName." ".$LastName;
-  $limiteMeses = 69;
+  $limiteMeses = 600009;
 
 ?>
 <!doctype html>
@@ -58,7 +58,7 @@
             $totalMeses=0;
             for($idx = 0; $idx < count($jobs); $idx++){
 
-              $totalMeses += $jobs[$idx]['meses'];
+              $totalMeses += $jobs[$idx]->meses;
 
               if ($totalMeses > $limiteMeses) {
                  break;//rompe conteo de lops meses antes que 12
