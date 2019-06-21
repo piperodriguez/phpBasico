@@ -1,0 +1,4 @@
+Composer
+Vamos a añadir a nuestro proyecto un manejador de dependencias de PHP llamado Composer, no solo nos ayudara a traer librerías de tercero al proyecto además va a implementar el estándar PSR4 que nos va a permitir tener el cargado de archivos automático.
+
+composer.phar será un documento que nos servirá para manejar las dependencias en PHP, esta va muy de la mano con otro archivo llamado composer.json.

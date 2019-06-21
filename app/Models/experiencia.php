@@ -1,8 +1,13 @@
 <?php
-	require_once'baseElement.php';
+
+	namespace App\Models;
+
 	/**
 	 * @author Felipe Rodríguez
 	 */
+
+
+
 	class experiencia extends baseElement
 	{
 
@@ -39,5 +44,7 @@
 
 	        }
       }
+
+
 
 	}

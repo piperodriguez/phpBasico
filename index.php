@@ -17,7 +17,7 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
          crossorigin="anonymous">
       <link rel="stylesheet" href="css/style.css">
-      <title>Resume</title>
+      <title>Platiz Php Basico</title>
    </head>
    <body>
       <div class="container">
@@ -152,13 +152,17 @@
             </div>
          </div>
          <div class="container">
-            <nav>
-               <ul>
-                  <li><a href="conceptosBasicos/tiposDeDatos.php">Tipos de datos</a></li>
-                  <li><a href="conceptosBasicos/ejerciciosArreglos.php">Ejercicios Arreglos</a></li>
-                  <li><a href="conceptosBasicos/operadores.php">Operadores</a></li>
+          <caption>Conceptos Basicos</caption>
+               <ul class="list-group">
+                  <li class="list-group-item"><a href="apuntes/conceptosBasicos/tiposDeDatos.php">Tipos de datos</a></li>
+                  <li class="list-group-item"><a href="apuntes/conceptosBasicos/ejerciciosArreglos.php">Ejercicios Arreglos</a></li>
+                  <li class="list-group-item"><a href="apuntes/conceptosBasicos/operadores.php">Operadores</a></li>
+                  <li class="list-group-item"><a href="apuntes/conceptosBasicos/ejerciciosOperadores.php">Ejercicio Operadores</a></li>
                </ul>
-            </nav>
+          <caption>Programación Orientada a Objetos</caption>
+               <ul class="list-group">
+                  <li class="list-group-item"><a href="apuntes/poo/Herencia.php">Herencia y polimorfismo</a></li>
+               </ul>
          </div>
          <div id="resume-footer" class="row">
             <div class="col">

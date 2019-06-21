@@ -3,8 +3,9 @@
 	  /**
    *@author felipe rodriguez
    */
-
-  class baseElement
+  namespace App\Models;
+  require_once'printable.php';
+  class baseElement implements printable
   {
 
       protected $nombreProfesion;
@@ -59,6 +60,11 @@
           return ("$year años y $meseExtra meses");
         }
 
+      }
+
+      public function obtenerDescripcion()
+      {
+        return $this->descripcion;
       }
   }
 
