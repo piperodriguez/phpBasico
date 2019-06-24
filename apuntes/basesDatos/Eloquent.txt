@@ -1,0 +1,15 @@
+Eloquent
+Packagist es un sitio donde encontraras múltiples librerías de terceros que puedes integrar a tus proyectos mediante composer, de aquí añadiremos nuestra herramienta para la conexión a base de datos.
+
+Realizamos la conexión con la base de datos y usaremos Eloquent como nuestro ORM. Para que funcionen los modelos debemos hacer una clase que herede de Model.
+
+Una vez estén listos los modelos, usando la variable super global $_POST conectaremos la información del formulario con nuestro modelo para añadirla información a la base de datos.
+
+Documentacion
+https://packagist.org/packages/illuminate/database
+
+Instalacion
+
+composer require illuminate/database
+
+
