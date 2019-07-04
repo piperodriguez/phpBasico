@@ -1,4 +1,5 @@
 <?php
+   use App\Models\{trabajo};
    require('experiencias.php');
    //  obliga a que el archivo exitsta once a que solo sea una vez
    $firstName = "Juan Felipe";
@@ -16,14 +17,14 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
          crossorigin="anonymous">
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../css/style.css">
       <title>Platiz Php Basico</title>
    </head>
    <body>
       <div class="container">
          <div id="resume-header" class="row">
             <div class="col-3">
-               <img id="profile-picture" src="img/yo.JPG" alt="">
+               <img id="profile-picture" src="../img/yo.JPG" alt="">
             </div>
             <div class="col">
                <h1><?= $completeName; ?></h1>
