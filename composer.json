@@ -11,5 +11,7 @@
     		"App\\" : "app/"
     	}
     },
-    "require": {}
+    "require": {
+        "zendframework/zend-diactoros": "^2.1"
+    }
 }
