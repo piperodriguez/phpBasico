@@ -14,7 +14,7 @@
 	{
 
 		//definimos la tabla que vamos a utilizar
-		protected $table = 'trabajos';
+		protected $table = 'proyectos';
 		//public $timestamps = false;
 
       public function obtenerTiempoLaborado()

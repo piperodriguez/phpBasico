@@ -6,18 +6,13 @@
 	 * @author Felipe Rodríguez
 	 */
 
+use Illuminate\Database\Eloquent\Model;
 
-
-	class experiencia extends baseElement
+	class experiencia extends Model
 	{
-
-		function __construct($nombreProfesion, $descripcion)
-		{
-			$labelProfesion = 'Habilidades : '.$nombreProfesion;
-			$this->nombreProfesion = $labelProfesion;
-			$this->descripcion = $descripcion;
-			//parent::__construct($labelProfesion, $descripcion);
-		}
+		
+		protected $table = 'trabajos';
+		
 
       public function obtenerTiempoLaborado()
       {
