@@ -7,15 +7,7 @@
 
   $jobs = experiencia::all();
 
-  $proyecto1 = new proyecto('Soef','Soluciones eficientes una agencia de empleos enfocada para el departamento de Boyaca');
-
-  $proyecto2 = new proyecto('Gestión de Desempeño','Software enfocado en llevar el seguimiento del personal de Solati segun sus los indicadores de cada cargo que existe en la empresa');
-
-
-  $proyectos = [
-    $proyecto1,
-    $proyecto2
-  ];
+  $proyectos = proyecto::all();
 
 
   function imprimirElemento($job)

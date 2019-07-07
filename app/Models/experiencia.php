@@ -10,19 +10,21 @@ use Illuminate\Database\Eloquent\Model;
 
 	class experiencia extends Model
 	{
-		
+
 		protected $table = 'trabajos';
 		
 
       public function obtenerTiempoLaborado()
       {
+
+      	
 	        $year = floor($this->meses / 12);
 	        //para aproximar el numero y no dejarlo con tantosdecimales utilizamos floor
 	        $meseExtra = $this->meses % 12;
 
 	        if($year == 0){
 
-	          return ("Tiempo Laborado : $meses meses");
+	          return ("Tiempo Laborado : $meseExtra meses");
 
 	        }elseif($meseExtra == 0){
 
