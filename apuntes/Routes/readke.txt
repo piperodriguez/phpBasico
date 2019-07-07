@@ -1,0 +1,43 @@
+sistemas de rutas con diactoros paquete del framework zend psr7
+
+https://packagist.org/packages/zendframework/zend-diactoros/
+
+
+y lo instalamos de la siguiente manera
+
+composer require zendframework/zend-diactoros
+
+el link de la documentacion es la siguiente
+
+
+https://docs.zendframework.com/zend-diactoros/
+
+
+y encontramos la seccion de como usarlo
+Usage
+
+https://docs.zendframework.com/zend-diactoros/v2/usage/
+
+
+	$request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
+	    $_SERVER,
+	    $_GET,
+	    $_POST,
+	    $_COOKIE,
+	    $_FILES
+	);
+
+
+	creamos un archivo htacces
+	que es un archivo de configuracion de apache
+	permite hacer redireccionamieto o compresiojn de archvios enviados al servidor
+
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST}/public/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
+
+
+

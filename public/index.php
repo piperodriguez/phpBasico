@@ -17,22 +17,10 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 	    'collation' => 'utf8_unicode_ci',
 	    'prefix'    => '',
 	]);
-	// Make this Capsule instance available globally via static methods... (optional)
-	$capsule->setAsGlobal();
-	// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-	$capsule->bootEloquent();
-	//si esta definida la ruta y tiene un valor
-	$route = $_GET['route'] ?? '/phpBasico';
-	if ($route == '/phpBasico') {
-	
-		require '../index.php';
-	}elseif ($route == 'agregarTrabajo') {
-		require '../agregarTrabajo.php';
-		//para viuzualizar la ruta en el navegador
-		//http://localhost/phpBasico/public/index.php?route=agregarTrabajo  
-	}
 
-	/*
+	$capsule->setAsGlobal();
+	$capsule->bootEloquent();
+
 	$request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 	    $_SERVER,
 	    $_GET,
@@ -40,4 +28,5 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 	    $_COOKIE,
 	    $_FILES
 	);
-	var_dump($request->getUri()->getPath());*/
+
+	var_dump($request->getUri()->getPath());
