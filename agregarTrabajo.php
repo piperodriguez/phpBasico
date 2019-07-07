@@ -1,10 +1,11 @@
 <?php
- require_once 'vendor/autoload.php';
+ 
+ 	/*require_once 'vendor/autoload.php';
 	
-	use Illuminate\Database\Capsule\Manager as Capsule;
+	use Illuminate\Database\Capsule\Manager as Capsule;*/
 	use App\Models\{trabajo};
 
-	$capsule = new Capsule;
+	/*$capsule = new Capsule;
 
 	$capsule->addConnection([
 	    'driver'    => 'mysql',
@@ -22,7 +23,7 @@
 
 	// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 	$capsule->bootEloquent();
-
+*/
 	if (!empty($_POST)) {
 		$trabajo1 = new trabajo();
 		$trabajo1->titulo = $_POST["titulo"];
