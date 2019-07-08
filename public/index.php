@@ -6,6 +6,9 @@ error_reporting(E_ALL);
 require_once '../vendor/autoload.php';//traemos lo del composer
 //conexion a la base de datos
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Aura\Router\RouterContainer;
+
+
 	$capsule = new Capsule;
 	$capsule->addConnection([
 	    'driver'    => 'mysql',
@@ -29,4 +32,19 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 	    $_FILES
 	);
 
-	var_dump($request->getUri()->getPath());
+	$routerContainer = new RouterContainer();
+	$map = $routerContainer->getMap();
+
+
+	$map->get('index', '/phpBasico/', '../index.php');
+	$map->get('addJobs', '/phpBasico/add/job', '../agregarTrabajo.php');
+
+	$matcher = $routerContainer->getMatcher();
+	$route = $matcher->match($request);
+
+	if (!$route) {
+		echo "no existe la route";
+	}else{
+		require $route->handler;
+	}
+	

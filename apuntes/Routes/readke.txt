@@ -34,9 +34,17 @@ https://docs.zendframework.com/zend-diactoros/v2/usage/
 
 
 RewriteEngine On
-RewriteCond %{THE_REQUEST}/public/([^\s?]*) [NC]
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
 RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
+ahora instalamos aura router
+
+composer require aura/router
+
+Documentacion AURA
+
+https://github.com/auraphp/Aura.Router/blob/HEAD/docs/index.md
 
 
 
