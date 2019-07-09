@@ -36,15 +36,26 @@ use Aura\Router\RouterContainer;
 	$map = $routerContainer->getMap();
 
 
-	$map->get('index', '/phpBasico/', '../index.php');
+	$map->get('index', '/phpBasico/', [
+		'controller' => 'App\Controllers\IndexController',
+		'action' => 'indexAction'
+	]);
+
 	$map->get('addJobs', '/phpBasico/add/job', '../agregarTrabajo.php');
 
 	$matcher = $routerContainer->getMatcher();
 	$route = $matcher->match($request);
 
 	if (!$route) {
-		echo "no existe la route";
+		echo "no se encuentra el resultado";
 	}else{
-		require $route->handler;
+
+		$handlerData = $route->handler;
+		$controllerName = $handlerData['controller'];
+		$actionName = $handlerData['action'];
+
+		$controller = new $controllerName;
+		$controller->$actionName();
+		
 	}
 	
