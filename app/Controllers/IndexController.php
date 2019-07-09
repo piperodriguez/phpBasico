@@ -1,21 +1,29 @@
 <?php
 
-
-namespace App\Controllers;
-
+	namespace App\Controllers;
+	use App\Models\experiencia;
+	use App\Models\proyecto;
 /**
  * 
  */
-class IndexController 
-{
-	public function indexAction(){
-		
-		$num1 = 2019;
-		$num2 = 1996;
+	class IndexController 
+	{
+		public function indexAction(){
 
-		$edad = $num1-$num2;
+  			$jobs = experiencia::all();
 
-		echo "Mi edad es ".$edad;
+  			$proyectos = proyecto::all();
 
+   			$firstName = "Juan Felipe";
+   			$LastName = "Rodríguez Vargas";
+   			$completeName = $firstName." ".$LastName;
+   			$limiteMeses = 600009;
+
+   			include ' ../views/index.php';
+
+		}
 	}
-}
+
+
+
+

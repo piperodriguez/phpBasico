@@ -41,10 +41,35 @@ use Aura\Router\RouterContainer;
 		'action' => 'indexAction'
 	]);
 
-	$map->get('addJobs', '/phpBasico/add/job', '../agregarTrabajo.php');
+	$map->get('addJobs', '/phpBasico/add/job', [
+		'controller' => 'App\Controllers\TrabajoController',
+		'action' => 'getAddTrabajoAction'
+	]);
 
 	$matcher = $routerContainer->getMatcher();
 	$route = $matcher->match($request);
+
+
+  function imprimirElemento($job)
+  {
+
+     /* if ($job->visible == false) {
+        return;//si se cumple la condicion salte de la funcion
+      }*/
+
+      echo '<li class="work-position">';
+        echo '<h5>'. $job->titulo. '</h5>';
+        echo '<p>'. $job->descripcion .'</p>';
+        echo '<p>'. $job->obtenerTiempoLaborado() . '</p>';
+        echo '<strong>Funciones:</strong>';
+        echo '<ul>';
+        echo '<li>Desarrollar aplicaciones web.</li>';
+        echo '<li>Brindar soporte</li>';
+        echo '<li>Crear tablas de retención documental</li>';
+        echo '</ul>';
+      echo ' </li>';
+    }
+
 
 	if (!$route) {
 		echo "no se encuentra el resultado";
