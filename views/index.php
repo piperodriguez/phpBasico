@@ -3,12 +3,47 @@
    <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
+      <title>Platiz Php Basico</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
          crossorigin="anonymous">
       <link rel="stylesheet" href="css/style.css">
-      <title>Platiz Php Basico</title>
+      <style type="text/css">
+
+#resume-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#profile-picture {
+    width: 100%;
+    height: 300px;
+}
+
+#resume-footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.border-bottom-gray {
+    padding-bottom: 10px;
+    border-bottom: solid 1px darkgray;
+}
+
+.work-position {
+    margin-bottom: 40px;
+}
+
+.project {
+    margin-bottom: 40px;
+}
+.projectImg{
+   width: 100% !important;
+   height: 200px;
+}
+
+   </style>
    </head>
    <body>
       <div class="container">

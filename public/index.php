@@ -46,6 +46,14 @@ use Aura\Router\RouterContainer;
 		'action' => 'getAddTrabajoAction'
 	]);
 
+
+	$map->post('saveJobs', '/phpBasico/add/save', [
+		'controller' => 'App\Controllers\TrabajoController',
+		'action' => 'getAddTrabajoAction'
+	]);
+
+	
+
 	$matcher = $routerContainer->getMatcher();
 	$route = $matcher->match($request);
 
@@ -80,7 +88,7 @@ use Aura\Router\RouterContainer;
 		$actionName = $handlerData['action'];
 
 		$controller = new $controllerName;
-		$controller->$actionName();
+		$controller->$actionName($request);
 		
 	}
 	

@@ -14,7 +14,7 @@
       <div class="container">
          <div id="resume-header" class="row">
             <div class="col-3">
-               <img id="profile-picture" src="img/yo.JPG" alt="">
+               <img id="profile-picture" src="../img/yo.JPG" alt="">
             </div>
             <div class="col">
                <h1><?= $completeName; ?></h1>

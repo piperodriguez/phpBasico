@@ -13,7 +13,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-5">
-				<form  action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
+				<form action="save" method="POST">
 					<div class="form-group">
 						<label for="titulo">Titulo</label>
 						<input type="text" name="titulo" class="form-control">		

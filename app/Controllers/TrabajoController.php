@@ -7,14 +7,17 @@ use App\Models\experiencia;
  */
 class TrabajoController
 {
-	public function getAddTrabajoAction(){
+	public function getAddTrabajoAction($request){
 
-		if (!empty($_POST)) {
-			$trabajo1 = new experiencia();
-			$trabajo1->titulo = $_POST["titulo"];
-			$trabajo1->descripcion = $_POST["descripcion"];
-			$trabajo1->meses = $_POST["meses"];
-			$trabajo1->save();
+
+		if ($request->getMethod() == 'POST')
+		{
+			$postData = $request->getParsedBody();
+			$trabajo = new experiencia();
+			$trabajo->titulo = $postData["titulo"];
+			$trabajo->descripcion = $postData["descripcion"];
+			$trabajo->meses = $postData["meses"];
+			$trabajo->save();
 
 		}
 

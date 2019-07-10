@@ -19,7 +19,7 @@
    			$completeName = $firstName." ".$LastName;
    			$limiteMeses = 600009;
 
-   			include ' ../views/index.php';
+   			include '../views/index.php';
 
 		}
 	}
