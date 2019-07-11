@@ -1,58 +1,12 @@
-<!doctype html>
-<html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <title>Platiz Php Basico</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-         crossorigin="anonymous">
-      <link rel="stylesheet" href="css/style.css">
-      <style type="text/css">
+{% extends "layout.twig" %}
 
-#resume-header {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#profile-picture {
-    width: 100%;
-    height: 300px;
-}
-
-#resume-footer {
-    padding: 20px;
-    text-align: center;
-}
-
-.border-bottom-gray {
-    padding-bottom: 10px;
-    border-bottom: solid 1px darkgray;
-}
-
-.work-position {
-    margin-bottom: 40px;
-}
-
-.project {
-    margin-bottom: 40px;
-}
-.projectImg{
-   width: 100% !important;
-   height: 200px;
-}
-
-   </style>
-   </head>
-   <body>
-      <div class="container">
+{% block content %}
          <div id="resume-header" class="row">
             <div class="col-3">
-               <img id="profile-picture" src="img/yo.JPG" alt="">
+               <img id="profile-picture" src="https://lh3.googleusercontent.com/JRDvIOuztuy_3W1vdyz83vzfELNNiQkix_vjrCR34rfQdHnKJNho1TTQz6ddYLaVUuNiIlyl6HPwouXccIZ1ZVfkPgbCZrhDSswbiJYVabCbL35oTQGO25OXR0khuaQ3BpA5Prb30oLTNqjf1bhDBoITW4IhVCkmPi9ZVJ9IOPuVPo_i7-ncibTj-YNZ_gfeNmCP_vXF9iTzTAjzTa9mLjMSiaZKb0pU1GI8-7-e6r4lc4TsLdTqE13xaHUJt94xiT8Rs-l7O0c_1hNVl98vOMaJTtt7pIW8VMmUiz7NDr3Nu6HeTejoNbofD5DQUJBUWwtIniYCwfOP_SeeAU5urS9Q9NzERsAnVuw-agnL-0ws6-cCu9-oTKU4zxEtahQCUr2Oe0mrDkMg7imZDeSF8-2ad_whIug-_gRofelhwtn304g6XZHlQ-rL838CUGZg7ukHu8imC3x6eupwLu370KHG2Mhw0SFSQfksQNkBjLv1qudYeH4Qk691MYmrdON8rqSnGMGsGosyS_rM2fU0q8uevEBw1cTkF2b-qr0d0hjW0hjGqFwx05d6soTy4G_Hp3DDyDCFovOm8aXdMHnQ2OD4Y36T9dJ06vEHlcy-zM1bvACmCVQ5lGosuUOX9eZ6TEf44d8hLB_jXrqsGIqZR1pnHPs3ZmU=w703-h937-no" alt="Juan Felipe">
             </div>
             <div class="col">
-               <h1><?= $completeName; ?></h1>
+               <h1>{{completeName}}></h1>
                <h2>PHP Developer</h2>
                <ul>
                   <li>Correo: vargasjuan367@gmail.com</li>
@@ -75,33 +29,24 @@
                <div>
                   <h3 class="border-bottom-gray" >Experiencia Laboral</h3>
                   <ul>
-                     <?php
-                        $totalMeses=0;
-                        for($idx = 0; $idx < count($jobs); $idx++){
-
-                          $totalMeses += $jobs[$idx]->meses;
-
-                          if ($totalMeses > $limiteMeses) {
-                             break;//rompe conteo de lops meses antes que 12
-                          }
-
-                          imprimirElemento($jobs[$idx]);
-
-                        }
-
-                        ?>
+                     {% for job in jobs %}
+                        <li class="work-position">
+                           <h5>{{ job.titulo }}</h5>
+                           <p>{{ job.descripcion }}</p>
+                           <p><strong><u>Tiempo de experiencia :</u></strong> {{ job.meses }}</p>
+                        </li>
+                     {% endfor %}
                   </ul>
                </div>
                <div>
                   <h3 class="border-bottom-gray">Proyectos</h3>
                   <ul>
-                     <?php
-                        for($idx = 0; $idx < count($proyectos); $idx++){
-
-                          imprimirElemento($proyectos[$idx]);
-
-                        }
-                        ?>
+                     {% for project in projects %}
+                        <li class="work-position">
+                           <h5>{{ project.titulo }}</h5>
+                           <p>{{ project.descripcion }}</p>
+                        </li>
+                     {% endfor %}
                   </ul>
                   <div class="project">
                      <h5>Soef</h5>
@@ -195,14 +140,4 @@
                Designed by @frodriguez
             </div>
          </div>
-      </div>
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-         crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-         crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-         crossorigin="anonymous"></script>
-   </body>
-</html>
+{% endblock %}

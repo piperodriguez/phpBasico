@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Controllers;
 use App\Models\experiencia;
-/**
- * 
- */
-class TrabajoController
+class TrabajoController extends BaseController
 {
 	public function getAddTrabajoAction($request){
 
@@ -21,7 +17,7 @@ class TrabajoController
 
 		}
 
-		include '../views/agregarTrabajo.php';
+		return $this->rendetHTML('agregarTrabajo.twig');
 
 	}
 

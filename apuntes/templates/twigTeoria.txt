@@ -1,0 +1,26 @@
+Twig es un Template Engine que nos ayudará a manejar la seguridad en los elementos de entrada de la aplicación.
+
+Instalarlo es muy simple pues solo se integra la dependencia con composer:
+forma de instalacion en json
+composer require "“twig/twig:^2.0"”
+
+
+entonces nos dirigimos a la siguiente url
+
+https://packagist.org/
+
+y buscamos twig
+
+
+https://packagist.org/packages/twig/twig
+
+composer require twig/twig
+
+consultamos la documentacion de la libreria
+
+https://twig.symfony.com/doc/2.x/
+
+
+
+y seleccionamos twig para developers osea nosotros xd !
+

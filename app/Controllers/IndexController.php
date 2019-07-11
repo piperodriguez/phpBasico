@@ -6,7 +6,7 @@
 /**
  * 
  */
-	class IndexController 
+	class IndexController extends BaseController
 	{
 		public function indexAction(){
 
@@ -19,7 +19,11 @@
    			$completeName = $firstName." ".$LastName;
    			$limiteMeses = 600009;
 
-   			include '../views/index.php';
+   			return $this->rendetHTML('index.twig',[
+   				'completeName' => $completeName,
+   				'jobs' => $jobs,
+   				'projects' => $proyectos 
+   			]);
 
 		}
 	}
