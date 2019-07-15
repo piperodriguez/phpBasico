@@ -19,10 +19,21 @@ class TrabajoController extends BaseController
                     		->key('meses', validacion::stringType()->notEmpty());
         try{
           $formTrabajoValidator->assert($postData);
-          $trabajo = new experiencia();
+					$postData = $request->getParsedBody();
+
+
+					$files = $request->getUploadedFiles();
+					$imagen = $files['logo'];
+
+					if ($imagen->getError()== UPLOAD_ERR_OK) {
+						$fileName = $imagen->getClientFilename();
+						$imagen->moveTo("uploads/$fileName");
+					}
+        	$trabajo = new experiencia();
     			$trabajo->titulo = $postData["titulo"];
     			$trabajo->descripcion = $postData["descripcion"];
     			$trabajo->meses = $postData["meses"];
+					$trabajo->logo = $fileName;
     			$trabajo->save();
           $responseMessage = 'se guardo la información correctamente';
         } catch (\Exception $e){

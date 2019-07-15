@@ -1,4 +1,4 @@
-{% extends "layout.twig" %}
+ {% extends "layout.twig" %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-5">
-				<form action="save" method="POST">
+				<form action="save" method="POST"enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="titulo">Titulo</label>
 						<input type="text" name="titulo" class="form-control">
@@ -18,12 +18,15 @@
 					<div class="form-group">
 						<label for="descripcion">Descripción</label>
 						<textarea name="descripcion" class="form-control">
-
 						</textarea>
 					</div>
 					<div class="form-group">
 						<label for="meses">Meses</label>
 						<input type="text" name="meses" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="logo">Archivo</label>
+						<input type="file" name="logo" value="">
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-dark">Guardar</button>
