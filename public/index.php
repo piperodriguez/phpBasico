@@ -52,7 +52,18 @@ use Aura\Router\RouterContainer;
 		'action' => 'getAddTrabajoAction'
 	]);
 
-	
+
+	$map->get('addUsers', '/phpBasico/add/user', [
+		'controller' => 'App\Controllers\UserController',
+		'action' => 'index'
+	]);
+
+	$map->post('saveUsers', '/phpBasico/add/save/usuario', [
+		'controller' => 'App\Controllers\UserController',
+		'action' => 'save'
+	]);
+
+
 
 	$matcher = $routerContainer->getMatcher();
 	$route = $matcher->match($request);
@@ -91,4 +102,3 @@ use Aura\Router\RouterContainer;
 		$response = $controller->$actionName($request);
 		echo $response->getBody();
 	}
-	

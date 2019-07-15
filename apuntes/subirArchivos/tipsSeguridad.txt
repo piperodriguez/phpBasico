@@ -1,0 +1,13 @@
+Cuando permites subir archivos a tu servidor,
+estas exponiendote a posibles ataques o hackeos,
+por eso es muy importante tratar de tener cuidado con la forma en la que almacenamos los archivos.
+
+Existen muchas formas de protegernos, pero aun asi, aqui te dejo algunos tips para que tengas mas tranquilidad a la hora de permitir que usuarios suban archivos a tus aplicaciones:
+
+De ser posible almacena los archivos en un servicio externo a tu aplicación como Amazon S3.
+Un ataque muy común es tratar de subir un archivo que no es lo que nosotros esperamos, un atacante podría intentar subir un archivo PHP para que al mandarlo llamar el tenga acceso al servidor, pero si almacenamos los archivos en otro sitio él no tendrá acceso a nuestro servidor.
+
+Cuida los permisos.
+Cuando subimos un archivo podemos usar la función chmod para cambiar los permisos e indicarle al sistema operativo que ese archivo no es ejecutable.
+
+Verifica el tipo de archivo que están subiendo.
