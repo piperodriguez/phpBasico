@@ -35,9 +35,10 @@ class AuthController extends BaseController
     ]);
   }
 
-  public function getLogout()
-  {
+  public function getLogout(){
     unset($_SESSION['userId']);//unset limpia la variable
     return new RedirectResponse('login');
   }
+
+
 }

@@ -5,6 +5,10 @@ ini_set('display_starup_error', 1);
 error_reporting(E_ALL);
 require_once '../vendor/autoload.php';//traemos lo del composer
 session_start();//decimos que se van a utilizar sessiones
+
+$dotenv = Dotenv\Dotenv::create(__DIR__. '/..');
+$dotenv->load();
+
 //conexion a la base de datos
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
@@ -12,13 +16,13 @@ use Aura\Router\RouterContainer;
 
 	$capsule = new Capsule;
 	$capsule->addConnection([
-	    'host'      => 'localhost',
-			'driver'    => 'mysql',
-	    'database'  => 'cursophp',
-	    'username'  => 'root',
-	    'password'  => '',
-	    'charset'   => 'utf8',
-	    'collation' => 'utf8_unicode_ci',
+	    'host'      => getenv('DB_HOST'),
+			'driver'    => getenv('DB_DRIVER'),
+	    'database'  => getenv('DB_NAME'),
+	    'username'  => getenv('DB_USER'),
+	    'password'  => getenv('DB_PASS'),
+	    'charset'   => getenv('DB_CHARSET'),
+	    'collation' => getenv('DB_COLLATION'),
 	    'prefix'    => '',
 	]);
 
