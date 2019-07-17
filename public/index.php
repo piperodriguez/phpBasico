@@ -4,6 +4,7 @@ ini_set('display_errors', 1);//inicializa la vizualizacion de errores
 ini_set('display_starup_error', 1);
 error_reporting(E_ALL);
 require_once '../vendor/autoload.php';//traemos lo del composer
+session_start();//decimos que se van a utilizar sessiones
 //conexion a la base de datos
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
@@ -11,8 +12,8 @@ use Aura\Router\RouterContainer;
 
 	$capsule = new Capsule;
 	$capsule->addConnection([
-	    'driver'    => 'mysql',
 	    'host'      => 'localhost',
+			'driver'    => 'mysql',
 	    'database'  => 'cursophp',
 	    'username'  => 'root',
 	    'password'  => '',
@@ -43,7 +44,8 @@ use Aura\Router\RouterContainer;
 
 	$map->get('addJobs', '/phpBasico/add/job', [
 		'controller' => 'App\Controllers\TrabajoController',
-		'action' => 'getAddTrabajoAction'
+		'action' => 'getAddTrabajoAction',
+		'autenticacion' => true
 	]);
 
 
@@ -55,7 +57,8 @@ use Aura\Router\RouterContainer;
 
 	$map->get('addUsers', '/phpBasico/add/user', [
 		'controller' => 'App\Controllers\UserController',
-		'action' => 'index'
+		'action' => 'index',
+		'autenticacion' => true
 	]);
 
 	$map->post('saveUsers', '/phpBasico/add/save/usuario', [
@@ -63,6 +66,27 @@ use Aura\Router\RouterContainer;
 		'action' => 'save'
 	]);
 
+
+	$map->get('loginForm', '/phpBasico/login', [
+		'controller' => 'App\Controllers\AuthController',
+		'action' => 'getLogin'
+	]);
+
+	$map->post('auth', '/phpBasico/auth', [
+		'controller' => 'App\Controllers\AuthController',
+		'action' => 'postLogin',
+	]);
+
+	$map->get('admin', '/phpBasico/admin', [
+		'controller' => 'App\Controllers\AdminController',
+		'action' => 'getIndex',
+		'autenticacion' => true
+	]);
+
+	$map->get('logout', '/phpBasico/logout', [
+		'controller' => 'App\Controllers\AuthController',
+		'action' => 'getLogout'
+	]);
 
 
 	$matcher = $routerContainer->getMatcher();
@@ -97,8 +121,24 @@ use Aura\Router\RouterContainer;
 		$handlerData = $route->handler;
 		$controllerName = $handlerData['controller'];
 		$actionName = $handlerData['action'];
+		$autenticacion = $handlerData['autenticacion'] ?? false;
+
+		$sessionUserId = $_SESSION['userId'] ?? null;
+		if ($autenticacion && !$sessionUserId) {
+			echo "Acceso restringido";
+			die();
+		}
+
 
 		$controller = new $controllerName;
 		$response = $controller->$actionName($request);
+
+		foreach ($response->getHeaders() as $name => $values) {
+			foreach ($values as $value) {
+				header(sprintf('%s: %s', $name, $value), false);
+
+			}
+		}
+		http_response_code($response->getStatusCode());
 		echo $response->getBody();
 	}

@@ -38,14 +38,11 @@ class UserController extends BaseController
           $imagen->moveTo("uploads/$fileName");
         }
 
-        $cadenaPass = $postData["password"];
-        $contrasena = password_hash($cadenaPass, PASSWORD_DEFAULT);
-
-        $trabajo = new User();
-        $trabajo->email = $postData["email"];
-        $trabajo->password = $contrasena;
-        $trabajo->img = $fileName;
-        $trabajo->save();
+        $user = new User();
+        $user->email = $postData["email"];
+        $user->password = password_hash($postData["password"], PASSWORD_DEFAULT);;
+        $user->img = $fileName;
+        $user->save();
         $responseMessage = 'se guardo la información correctamente';
       } catch (\Exception $e){
         $responseMessage = $e->getMessage();
@@ -53,7 +50,6 @@ class UserController extends BaseController
 
     }
       return $this->rendetHTML('agregarUsuario.twig',[
-
           'responseMessage' => $responseMessage
       ]);
   }

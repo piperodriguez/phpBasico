@@ -1,0 +1,32 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1 align="center">Login</h1>
+</div>
+<div class="alert alert-primary">
+  {{ responseMessage }}
+</div>
+<div class="row">
+  <div class="col-md-5 col-md-offset-4" style="background-color:whitesmoke;">
+    <form action="auth" method="POST">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="password">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark">Login </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
